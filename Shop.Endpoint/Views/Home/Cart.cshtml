@@ -1,0 +1,118 @@
+﻿@model Demo.Domain.Cart
+@{
+    ViewData["Title"] = "Cart";
+}
+<partial name="_LoginPartial" />
+<hr />
+<div class="bg-light py-3">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 mb-0">
+                <a href="~/home/index">صفحه نخست</a> <span class="mx-2 mb-0">/</span>
+                <strong class="text-black">سبد خرید</strong>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="site-section">
+    <div class="container">
+        <div class="row mb-5">
+            @*<form asp-class="col-md-12" method="post">*@
+            <div class="site-blocks-table">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th class="product-thumbnail">تصویر</th>
+                            <th class="product-name">محصول</th>
+                            <th class="product-price">قیمت</th>
+                            <th class="product-quantity">تعداد</th>
+                            <th class="product-total">مجموع</th>
+                            <th class="product-remove">حذف</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        @foreach (var item in Model.CartLines)
+                        {
+                            <tr>
+                                <td class="product-thumbnail">
+                                    <img src="@item.Product.Medias[0].Path" alt="Image" class="img-fluid">
+                                </td>
+                                <td class="product-name">
+                                    <h2 class="h5 text-black">@item.Product.Name</h2>
+                                    <p>@item.Product.Description</p>
+                                </td>
+                                <td class="price">@item.Product.Price تومان</td>
+                                <td class="product-quantity">
+                                    <div class="input-group mb-3" style="max-width: 120px;">
+                                        <div class="input-group-prepend">
+                                            <button class="btn btn-outline-light js-btn-minus" style="background-color:rgb(185, 135, 233);" type="button">&minus;</button>
+                                        </div>
+                                        <input type="text" class="product-quantity form-control text-center" value="@item.Quantity" name="qunaity" min="0" max="100" placeholder=""
+                                               aria-label="Example text with button addon" aria-describedby="button-addon1">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-outline-light js-btn-plus" style="background-color:rgb(185, 135, 233);" type="button">&plus;</button>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="product-total">@(item.Product.Price * item.Quantity)تومان </td>
+                                <td class="product-remove">
+                                    <form method="post" asp-controller="home" asp-action="RemoveAtCart" asp-route-productID="@item.Product.ProductID">
+                                        <p><input type="submit" class="btn btn-outline-light" style="background-color: rgb(185, 135, 233);" value="X" /></p>
+                                    </form>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="row mb-5">
+                    <div class="col-md-6 mb-3 mb-md-0">
+                        <button class="btn btn-outline-light btn-md" Style="background-color: rgb(114, 76, 150);">بروزرسانی سبد خرید</button>
+                    </div>
+                    <div class="col-md-6">
+                        <a href="products" class="btn btn-outline-light btn-md" style="background-color: rgb(114, 76, 150);">ادامه خرید</a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <label class="text-black h4" for="coupon">تخفیف</label>
+                        <p>لطفا کد تخفیف خود را وارد نمایید.</p>
+                    </div>
+                    <div class="col-md-8 mb-3 mb-md-0">
+                        <input type="text" class="form-control py-3" id="coupon" placeholder="کد تخفیف">
+                    </div>
+                    <div class="col-md-4">
+                        <button class="btn btn-outline-light btn-md" style="background-color: rgb(114, 76, 150);">اعمال تخفیف</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 pl-5">
+                <div class="row justify-content-end">
+                    <div class="col-md-7">
+                        <div class="row">
+                            <div class="col-md-12 text-right border-bottom mb-5">
+                                <h3 class="text-black h4 text-uppercase">جمع فاکتور</h3>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <span class="text-black">جمع مبلغ:</span>
+                            </div>
+                            <div class="col-md-6 text-right">
+                                <strong class="text-black">@Model.GetTotalPrice() تومان</strong>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <a href="~/checkout/index" class="btn btn-outline-light btn-lg" style="background-color: rgb(114, 76, 150)">پرداخت و تکمیل خرید</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

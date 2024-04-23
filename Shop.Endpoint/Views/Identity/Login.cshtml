@@ -1,0 +1,39 @@
+﻿@model LoginViewModel
+@{
+    ViewData["Title"] = "Login";
+}
+<hr />
+<h2>ورود به حساب کاربری</h2>
+<div class="site-section">
+    <div class="col-md-12">
+        <div class="bg-light rounded p-3">
+            <p class="mb-0">هنوز ثبت نام نکرده اید؟ <a href="~/identity/register" class="d-inline-block">همین حالا عضو شوید</a></p>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Login">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="UserName" class="control-label"></label>
+                <input asp-for="UserName" class="form-control" placeholder="نام کاربری را وارد کنید" />
+                <span asp-validation-for="UserName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Password" class="control-label"></label>
+                <input asp-for="Password" class="form-control" placeholder="گذرواژه را وارد کنید" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" placeholder="رایانامه خود را وارد کنید" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="ورود" href="~/home/index" class ="btn btn-outline-light" style="background-color:rgb(185, 135, 233);" />
+            </div>
+        </form>
+    </div>
+</div>
+

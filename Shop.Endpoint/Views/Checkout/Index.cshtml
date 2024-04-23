@@ -1,0 +1,180 @@
+﻿@model Demo.Domain.Order
+@{
+    ViewData["Title"] = "Index";
+}
+<partial name="_LoginPartial" />
+<hr />
+<div class="bg-light py-3">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 mb-0">
+                <a href="home/index">صفحه نخست</a> <span class="mx-2 mb-0">/</span>
+                <strong class="text-black">پیش فاکتور</strong>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="site-section">
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-md-12">
+                <div class="bg-light rounded p-3">
+                    <p class="mb-0">هنوز ثبت نام نکرده اید؟ <a href="~/identity/register" class="d-inline-block">همین حالا عضو شوید</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 mb-5 mb-md-0">
+                <h2 class="h3 mb-3 text-black">جزئیات فاکتور</h2>
+                <div class="p-3 p-lg-5 border">
+                    <div class="form-group">
+                        <label for="c_country" class="text-black">کشور <span class="text-danger">*</span></label>
+                        <select id="c_country" class="form-control">
+                            <option value="1">انتخاب کشور</option>
+                            <option value="2">ایران</option>
+                            <option value="3">افغانستان</option>
+                            <option value="4">ترکیه</option>
+                        </select>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-md-6">
+                            <label for="c_fname" class="text-black">نام شما <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" id="fname" name="fname">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="c_lname" class="text-black">نام خانوادگی <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" id="lname" name="lname">
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-md-12">
+                            <label for="c_companyname" class="text-black">نام شرکت </label>
+                            <input type="text" class="form-control" id="companyname" name="companyname">
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-md-12">
+                            <label for="c_address" class="text-black">آدرس <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" id="address" name="address" placeholder="نام شهر">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="آدرس دقیق">
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-md-6">
+                            <label for="c_state_country" class="text-black">کشور <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" id="state_country" name="state_country">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="c_postal_zip" class="text-black">کد پستی <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" id="postal_zip" name="postal_zip">
+                        </div>
+                    </div>
+
+                    <div class="form-group row mb-5">
+                        <div class="col-md-6">
+                            <label for="c_email_address" class="text-black">آدرس ایمیل <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" id="email_address" name="email_address">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="c_phone" class="text-black">تلفن تماس <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" id="phone" name="phone" placeholder="شماره همراه">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="c_ship_different_address" class="text-black" data-toggle="collapse" href="#ship_different_address" role="button" aria-expanded="false" aria-controls="ship_different_address"><input type="checkbox" value="1" id="c_ship_different_address"> ارسال محصول به آدرس دیگر؟</label>
+            <div class="collapse" id="ship_different_address">
+                <div class="py-2">
+                    <div class="form-group">
+                        <label for="c_diff_country" class="text-black">کشور <span class="text-danger">*</span></label>
+                        <select id="c_diff_country" class="form-control">
+                            <option value="1">انتخاب کشور</option>
+                            <option value="2">ایران</option>
+                            <option value="3">افغانستان</option>
+                            <option value="4">ترکیه</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-md-12">
+                            <label for="c_diff_address" class="text-black">آدرس <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" id="c_diff_address" name="c_diff_address" placeholder="آدرس دقیق">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="c_order_notes" class="text-black">توضیحات خرید</label>
+            <textarea name="c_order_notes" id="c_order_notes" cols="30" rows="5" class="form-control" placeholder="توضیحات خود را تایپ کنید..."></textarea>
+        </div>
+
+    </div>
+    <div class="col-md-6">
+        <div class="row mb-5">
+            <div class="col-md-12">
+                <h2 class="h3 mb-3 text-black">کد تخفیف</h2>
+                <div class="p-3 p-lg-5 border">
+                    <label for="c_code" class="text-black mb-3">کد تخفیف خود را وارد کنید</label>
+                    <div class="input-group w-75">
+                        <input type="text" class="form-control" id="c_code" placeholder="Coupon Code" aria-label="کد تخفیف" aria-describedby="button-addon2">
+                        <div class="input-group-append">
+                            <button class="btn btn-outline-light btn-md" style="background-color: rgb(114, 76, 150);">اعمال تخفیف</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mb-5">
+            <div class="col-md-12">
+                <h2 class="h3 mb-3 text-black">سفارش شما</h2>
+                <div class="p-3 p-lg-5 border">
+                    <table class="table site-block-order-table mb-5">
+                        <thead>
+                        <th>محصول</th>
+                        <th>تعداد </th>
+                        <th>قیمت</th>
+                        <tbody>
+                            @foreach (var item in (ViewBag.Cart as Demo.Domain.Cart).CartLines)
+                            {
+                                <tr>
+                                    <td>@item.Product.Name<strong class="mx-2"></strong>
+
+                                    <td>@item.Quantity عدد</td>
+                                    <td>@(@item.Quantity * @item.Product.Price) تومان</td>
+                                </tr>
+                            }
+                            <tr>
+                                <td class="text-black font-weight-bold"><strong>جمع فاکتور</strong></td>
+                                <td class="text-black font-weight-bold">@((ViewBag.Cart as Demo.Domain.Cart).GetTotalPrice())تومان</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="row mb-5">
+                        <div class="col-md-12">
+                            <h5 style="color:rgb(114, 76, 150);">اطلاعات شخصی شما برای پردازش سفارش شما و پشتیبانی از تجربه شما در این وبسایت و برای اهداف دیگری که در سیاست حفظ حریم خصوصی توضیح داده شده است استفاده می‌شود.</h5>
+                        </div>
+                        <div class="creat_account">
+                            <input type="checkbox" id="f-option4" name="selector" />
+                            <label for="f-option4"> *من شرایط و مقررات سایت را خوانده ام و آن را می پذیرم* </label>
+                            <a href="#"> من شرایط و مقررات سایت را نخوانده ام!</a>
+                            <div class="form-group">
+                                <a href="~/peyment/Pay" class="btn btn-outline-light btn-lg" style="background-color: rgb(114, 76, 150);">پرداخت فاکتور</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

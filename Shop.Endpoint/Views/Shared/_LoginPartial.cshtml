@@ -1,0 +1,22 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+@if (User.Identity.IsAuthenticated)
+{
+    <form asp-area="Identity" asp-controller="identity" asp-action="signout" asp-route-returnUrl="@Url.Action("Index", "home", new { area = "" })" method="post" id="logoutForm" class="navbar-left">
+
+        <class style="color:rgb(62, 20, 129);"> سلام @User.Identity.Name!</class>
+       <li><button class="btn-outline-light btn-md" asp-controller="identity" asp-action="admin" style="color: rgb(62, 20, 129);">تغییر محصولات</button></li>
+      <li><button class="btn-outline-light btn-md" asp-controller="identity" asp-action="SignOut" style="color: rgb(62, 20, 129);">خروج</button></li>
+    </form>
+}
+else
+{
+    <ul class="nav navbar-nav navbar-right">
+
+        @*<li>
+            <a asp-area="Identity" asp-controller="identity" asp-action="SignOut">خروج</a>
+        </li>*@
+    </ul>
+}

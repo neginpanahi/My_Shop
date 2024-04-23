@@ -1,0 +1,28 @@
+﻿@model List<Demo.Domain.Product>
+@{
+    ViewData["Title"] = "Default";
+}
+<div class="title-section text-center col-12">
+        <h2 class="text-uppercase" style="color: rgb(189, 11, 100);"> جدیدترین محصولات</h2>
+        <div class="container" style="background-color: rgb(250, 217, 232);">
+            <div class="row">
+                <div class="col-md-12 block-3 products-wrap">
+                    <div class="nonloop-block-3 owl-carousel">
+                            @foreach (var item in Model)
+                            { 
+                                            <div class="text-center item mb-4">
+                                                <a href="~/home/shopsingle/@item.ProductID"> <img src="@item.Medias[0].Path" style="width:300px; height:300px;" alt="Image"></a>
+                                                <h3 class="text-dark"><a href="~/home/shopsingle/@item.ProductID">@item.Name </a></h3>
+                                                <p class="price">@item.Price تومان</p>
+                                            </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+    </div>
+
+
+
+

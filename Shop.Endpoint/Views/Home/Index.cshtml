@@ -1,0 +1,99 @@
+﻿@model List<Demo.Domain.Product>
+<partial name="_LoginPartial" />
+<hr />
+<div class="site-blocks-cover" style="background-image: url('/images/img1.jpg');">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</div>
+<!-- End Heading Section -->
+<!-- Start Boxes Section -->
+<div class="title-section text-center col-12" style="margin-top: 10%;">
+    <h2 class="text-uppercase" style="color: rgb(62, 20, 129);">چرا فروشگاه مارا انتخاب کرده اید؟</h2>
+</div>
+<div class="site-section" style="margin-top: 8%;">
+    <div class="container">
+        <div class="row align-items-stretch section-overlap">
+            <div class="col-md-6 col-lg-4 mb-4 mb-lg-0">
+                <div class="banner-wrap  h-100" style="background-color: rgb(226, 169, 203);">
+                    <a href="#" class="h-100">
+                        <h5>ارسال رایگان</h5>
+                        <p>
+                            به تمامی نقاط کشور
+                            <strong>شما برای ارسال محصولات هیچ هزینه ای نمی پردازید.</strong>
+                        </p>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4 mb-4 mb-lg-0">
+                <div class="banner-wrap h-100" style="background-color: aquamarine;">
+                    <a href="#" class="h-100">
+                        <h5>تخفیف های فصلی</h5>
+                        <p>
+                            تا 50% تخفیف
+                            <strong>از تخفیف های ویژه فصلی برخوردار شوید.</strong>
+                        </p>
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4 mb-4 mb-lg-0">
+                <div class="banner-wrap h-100" style="background-color: rgb(148, 148, 243);">
+                    <a href="#" class="h-100">
+                        <h5>خرید به صورت آنلاین</h5>
+                        <p>
+                            بدون محدودیت زمانی
+                            <strong>از طریق تمامی کارت های عضو شتاب خرید خود را انجام دهید.</strong>
+                        </p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Boxes Section -->
+
+    <div class="site-section">
+        <div class="title-section text-center col-12">
+            <h2 class="text-uppercase" style="color: rgb(192, 16, 133);"> ارزانترین محصولات</h2>
+            <div class="container" style="background-color: rgb(228, 207, 217);">
+                <div class="row">
+                    @foreach (var item in Model)
+                    {
+                        <div class="col-sm-6 col-lg-4 text-center item mb-4" style="margin-top:5%;">
+                            <span class="tag">فروش ویژه</span>
+                            <a href="~/home/shopsingle/@item.ProductID"><img src="@item.Medias[0].Path" style="width:300px; height:300px;" alt="Image"></a>
+                            <h3 class="text-dark"><a href="~/home/shopsingle/@item.ProductID">@item.Name</a></h3>
+                            <p class="price">@item.Price تومان</p>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Start New Products Section -->
+    @(await Component.InvokeAsync("LastProducts"))
+    <!-- End New Products Section -->
+    <!-- Start Bottom Banner Section -->
+    <div class="site-section bg-light bg-image" style="background-image: url('/images/img8.jpg');">
+        <div class="container">
+            <div class="row align-items-stretch">
+                <div class="col-lg-6 mb-5 mb-lg-0">
+                    <a href="#" class="banner-1 h-100 d-flex" style="background-image: url('/images/img4.jpg');">
+                        <div class="banner-1-inner align-self-center">
+                            <h3 style="color: rgb(5, 5, 5);"><b>مورد تایید متخصصان </b></h3>
+                            <p style="color: rgb(15, 15, 15);">همه ی محصولات مریماه اصل و برند هستند و زیر نظر تخصصان این حوزه آزمایش شده اند.</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-6 mb-5 mb-lg-0">
+                    <a href="#" class="banner-1 h-100 d-flex" style="background-image: url('/images/img15.jpg');">
+                        <div class="banner-1-inner ml-auto  align-self-center">
+                            <h3 style="color:rgb(3, 3, 3) ;"><b>محصولات آرایشی</b></h3>
+                            <p style="color: rgb(5, 4, 4);"> فروشگاه بیوتی مریماه با بروز ترین و با کیفیت ترین محصولات آرایشی و بهداشتی  در تلاش است شما را زیبا تر از آنچه که هستید نشان دهد.</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>

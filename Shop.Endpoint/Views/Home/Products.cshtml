@@ -1,0 +1,80 @@
+﻿@model List<Demo.Domain.Product>
+@{
+    ViewData["Title"] = "Products";
+}
+<partial name="_LoginPartial" />
+<hr/>
+<div class="bg-light py-3">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 mb-0"><a href="index">صفحه نخست</a> <span class="mx-2 mb-0">/</span> <strong class="text-black">محصولات</strong></div>
+        </div>
+    </div>
+</div>
+<!-- End Breadcrumb Section -->
+<!-- Start Filters Section -->
+<div class="site-section">
+    <div class="container">
+        <div class="row">
+            @*<div class="col-lg-6">*@
+                @*<h3 class="mb-3 h6 text-uppercase text-black d-block">فیلتر بر اساس قیمت</h3>
+                @*<div id="slider-range" class="border-primary"></div>
+                <input type="text" name="text" id="amount" class="form-control border-0 pl-0 bg-white" disabled="" />*@
+            @*</div>
+            <div class="col-lg-3">
+                <h3 class="mb-3 h6 text-uppercase text-black d-block">فیلتر بر اساس شرکت سازنده</h3>
+                <button type="button" class="btn btn-secondary btn-md dropdown-toggle" id="dropdownMenuReference" data-toggle="dropdown">شرکت سازنده</button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuReference">
+                    <a class="dropdown-item" href="#">شرکت اول</a>
+                    <a class="dropdown-item" href="#">شرکت دوم</a>
+                    <a class="dropdown-item" href="#">شرکت سوم</a>*@
+            @foreach (var item in Model)
+            {
+            <div class="col-sm-6 col-lg-4 text-center item mb-4">
+                @*<span class="tag">فروش ویژه</span>*@
+                <a href="~/home/ShopSingle/@item.ProductID"> <img src="@item.Medias[0].Path" style="width:300px; height:300px;" alt="Image"></a>
+                <h3 class="text-black"><a href="~/home/ShopSingle/@item.ProductID">@item.Name</a></h3>
+                <p class="price">@item.Price  تومان</p>
+            </div>
+            }
+        </div>
+        </div>
+    </div>
+        <div class="row mt-5">
+            <div class="col-md-12 text-center">
+                <div class="site-block-27">
+                    <ul>
+                        <li><a href="#">&lt;</a></li>
+                        <li class="active"><span>1</span></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">4</a></li>
+                        <li><a href="#">5</a></li>
+                        <li><a href="#">&gt;</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+<!-- End Filters Section -->
+<div class="site-section bg-light bg-image" style="background-image: url('/images/img1.jpg');">
+    <div class="container">
+        <div class="row align-items-stretch">
+            <div class="col-lg-6 mb-5 mb-lg-0">
+                <a href="#" class="banner-1 h-100 d-flex" style="background-image: url('/images/img4.jpg');">
+                    <div class="banner-1-inner align-self-center">
+                        <h3 style="color: rgb(5, 5, 5);"><b>مورد تایید متخصصان </b></h3>
+                        <p style="color: rgb(15, 15, 15);">همه ی محصولات مریماه اصل و برند هستند و زیر نظر تخصصان این حوزه آزمایش شده اند.</p>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-6 mb-5 mb-lg-0">
+                <a href="#" class="banner-1 h-100 d-flex" style="background-image: url('/images/img15.jpg');">
+                    <div class="banner-1-inner ml-auto  align-self-center">
+                        <h3 style="color:rgb(3, 3, 3) ;"><b>محصولات آرایشی</b></h3>
+                        <p style="color: rgb(5, 4, 4);"> فروشگاه بیوتی مریماه با بروز ترین و با کیفیت ترین محصولات آرایشی و بهداشتی  در تلاش است شما را زیبا تر از آنچه که هستید نشان دهد.</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

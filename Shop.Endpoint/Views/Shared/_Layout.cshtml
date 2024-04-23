@@ -1,0 +1,164 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>بیوتی مریماه</title>
+
+    <!-- CSS Styles -->
+    <link href="https://fonts.googleapis.com/css?family=Rubik:400,700|Crimson+Text:400,400i" rel="stylesheet">
+    <link rel="stylesheet" href="~/fonts/icomoon/style.css">
+    <link rel="stylesheet" href="~/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/css/magnific-popup.css">
+    <link rel="stylesheet" href="~/css/jquery-ui.css">
+    <link rel="stylesheet" href="~/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="~/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="~/css/aos.css">
+    <link rel="stylesheet" href="~/css/style.css">
+</head>
+<body class="rtl">
+    <div class="site-wrap">
+        <div class="site-navbar py-2">
+            <!-- Start Search Box -->
+            <div class="search-wrap">
+                <div class="container">
+                    <a href="~/home/search" class="search-close js-search-close"><span class="icon-close2"></span></a>
+                    <form asp-action="search" asp-controller="home" method="post">
+                        <input type="text" name="q" class="form-control" placeholder="جستجو کنید...">
+                    </form>
+                </div>
+            </div>
+            <!-- End Search Box -->
+            <!-- Start Navbar Section -->
+            <div class="container">
+                <div class="d-flex align-items-center justify-content-between">
+                    <div class="logo">
+                        <div class="site-logo">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQzroBieKmSG3AsxMgKHL8akbiSl30qaEm1mg&usqp=CAU" class="rounded-circle" alt="Cinque Terre" width="100" height="100">
+                            <a href="~/home/index" class="js-logo-clone">فروشگاه لوازم آرایشی و بهداشتی</a><br><h6 class="text-info">بیوتی مریماه</h6>
+                        </div>
+                    </div>
+                    <div class="main-nav d-none d-lg-block">
+                        <nav class="site-navigation text-right text-md-center" role="navigation">
+                            <ul class="site-menu js-clone-nav d-none d-lg-block">
+                                <li class="active"><a href="~/home/index">صفحه اصلی</a></li>
+                                <li><a href="~/Home/Products">محصولات</a></li>
+                                <li class="has-children">
+                                    <a>دسته بندی</a>
+                                    <ul class="dropdown">
+                                        <li><a href="~/Category/HealthProducts"> بهداشتی</a></li>
+                                        <li class="has-children">
+                                            <a href="">آرایشی </a>
+                                            <ul class="dropdown">
+                                                <li><a href="/Category/FaceMakeup">صورت</a></li>
+                                                <li><a href="/Category/Eyemakeup">چشم</a></li>
+                                                <li><a href="/Category/EyebrowMakeup">ابرو</a></li>
+                                                <li><a href="~/Category/LipMakeup">لب</a></li>
+
+                                            </ul>
+                                        </li>
+                                        <li><a href="/Category/Skincareup"> مراقبتی پوست</a></li>
+                                        <li><a href="/Category/Haircareup"> مراقبتی مو</a></li>
+                                        <li><a href="/Category/MakeupTool"> ابزار آرایشی</a></li>
+
+                                    </ul>
+                                </li>
+                                <li><a href="~/home/about">درباره ما</a></li>
+                                <li><a href="~/home/contact">تماس با ما</a></li>
+                                <li><a href="~/identity/login">ورود\ثبت نام</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="icons">
+  
+                            <a href="~/home/search" class="icons-btn d-inline-block js-search-open"><span class="icon-search"></span></a>
+                            <a href="~/home/cart" class="icons-btn d-inline-block bag">
+                                @Html.Partial("_CartCountPartial")</a>
+
+                                <a href="#" class="site-menu-toggle js-menu-toggle ml-3 d-inline-block d-lg-none"><span class="icon-menu"></span></a>
+</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </body>
+
+        <partial name="_CookieConsentPartial" />
+
+        <div class="container body-content">
+            @RenderBody()
+            <hr />
+        </div>
+        <!-- Start Footer Section -->
+        <footer class="site-footer">
+            <div class="container" style="background-image: url('/images/img8.jpg');">
+                <div class="row">
+                    <div class="col-md-6 col-lg-3 mb-4 mb-lg-0">
+                        <div class="block-7">
+                            <a href="~/home/about" class="footer-heading mb-4">درباره ما</a>
+                            <p>بیوتی مریماه با 5 سال سابقه سلامت پوست و مویتان را تضمین میکند</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 mx-auto mb-5 mb-lg-0">
+                        <h3 class="footer-heading mb-4">دسترسی سریع</h3>
+                        <ul class="list-unstyled">
+                            <li><a href="#">لوازم آرایشی</a></li>
+                            <li><a href="#">لوازم بهداشتی</a></li>
+                            <li><a href="#"> مراقبتی پوست</a></li>
+                            <li><a href="#">  مراقبتی مو</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="block-5 mb-5">
+                            <h3 class="footer-heading mb-4">اطلاعات تماس</h3>
+                            <ul class="list-unstyled">
+                                <li class="address">تهران-چهارراه ولیعصر</li>
+                                <li class="phone">021-66952365</li>
+                                <li class="email">email@website.com</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- End Footer Section -->
+
+        <!-- Scripts -->
+        <script src="~/js/jquery-3.3.1.min.js"></script>
+        <script src="~/js/jquery-ui.js"></script>
+        <script src="~/js/popper.min.js"></script>
+        <script src="~/js/bootstrap.min.js"></script>
+        <script src="~/js/owl.carousel.min.js"></script>
+        <script src="~/js/jquery.magnific-popup.min.js"></script>
+        <script src="~/js/aos.js"></script>
+        <script src="~/js/scripts.js"></script>
+        </html>
+
+
+
+
+        <environment include="Development">
+            <script src="~/lib/jquery/dist/jquery.js"></script>
+            <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+            <script src="~/js/site.js" asp-append-version="true"></script>
+        </environment>
+        <environment exclude="Development">
+            <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.3.1.min.js"
+                    asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
+                    asp-fallback-test="window.jQuery"
+                    crossorigin="anonymous"
+                    integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT">
+            </script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"
+                    asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
+                    asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"
+                    crossorigin="anonymous"
+                    integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd">
+            </script>
+            <script src="~/js/site.min.js" asp-append-version="true"></script>
+        </environment>
+
+        @RenderSection("Scripts", required: false)
+
+

@@ -1,0 +1,54 @@
+﻿@model ProductViewModel
+
+@{
+    ViewData["Title"] = "Admin";
+}
+<partial name="_LoginPartial" />
+<hr />
+<div class="container mt-3">
+    <h3 style="color:rgb(114, 76, 150);" class="text-center"> لیست محصولات</h3>
+    <table class="table table-striped">
+        <thead class="table-hover">
+            <tr>
+                <th class="text-danger"> نام محصول</th>
+                <th class="text-primary">توضیحات</th>
+                <th class="text-success">قیمت</th>
+                <th class="text-danger"> دسته بندی</th>
+                <th class="text-active">تصویر</th>
+                <th class="text-primary"> زمان</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.products)
+            {
+            <tr>
+                <td>
+                    @item.Name
+                </td>
+                <td>
+                    @item.Description
+                </td>
+                <td>
+                    @item.Price
+                </td>
+                <td>
+                    @item.Category
+                </td>
+                <td>
+                    @item.Medias
+                </td>
+                <td>
+                    @item.InseretTime
+                </td>
+                <td>
+                    <a class="btn btn-outline-light" style="background-color:lightgreen" href="~/identity/Add/@item.ProductID">اضافه کردن</a>
+                    <a class="btn btn-outline-light" style="background-color:orange" href="~/identity/Edit/@item.ProductID">ویرایش</a>
+                    <a class="btn btn-outline-light" style="background-color:red" href="~/identity/Delete/@item.ProductID">حذف</a>
+                </td>
+            </tr>
+                
+            }
+            
+        </tbody>
+    </table>
+

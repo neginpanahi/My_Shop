@@ -1,0 +1,60 @@
+﻿@using Demo.Domain
+@model PagedList<Product>
+@{
+    ViewData["Title"] = "LipMakeup";
+}
+<partial name="_LoginPartial" />
+<hr />
+<div class="bg-light py-3">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 mb-0"><a href="~/home/index">صفحه نخست</a><span class="mx-2 mb-0">/</span><a href="/home/products">محصولات</a><span class="mx-2 mb-0">/</span><strong class="text-black">محصولات آرایشی لب</strong></div>
+        </div>
+    </div>
+</div>
+<br />
+<div class="site-blocks-cover" style="background-image: url('https://valenteshop.ru/uploads/de3594b0b52701a0c4b650a69e3f3e4a.jpg');">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</div>
+<br />
+<div class="row">
+    @foreach (var item in Model.Data)
+    {
+        <div class="col-sm-6 col-lg-4 text-center item mb-4">
+            <a href="~/home/ShopSingle/@item.ProductID"> <img src="@item.Medias[0].Path" style="width:300px; height:300px;" alt="Image"></a>
+            <h3 class="text-black"><a href="~/home/ShopSingle/@item.ProductID">@item.Name</a></h3>
+            <p class="price">@item.Price  تومان</p>
+        </div>
+    }
+    <hr /><br />
+    <div class="site-section bg-light bg-image" style="background-image: url('/images/img1.jpg');">
+        <div class="container">
+            <div class="row align-items-stretch">
+                <div class="col-lg-6 mb-5 mb-lg-0">
+                    <a href="#" class="banner-1 h-100 d-flex" style="background-image: url('/images/img4.jpg');">
+                        <div class="banner-1-inner align-self-center">
+                            <h3 style="color: rgb(5, 5, 5);"><b>مورد تایید متخصصان </b></h3>
+                            <p style="color: rgb(15, 15, 15);">همه ی محصولات مریماه اصل و برند هستند و زیر نظر تخصصان این حوزه آزمایش شده اند.</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-6 mb-5 mb-lg-0">
+                    <a href="#" class="banner-1 h-100 d-flex" style="background-image: url('/images/img15.jpg');">
+                        <div class="banner-1-inner ml-auto  align-self-center">
+                            <h3 style="color:rgb(3, 3, 3) ;"><b>محصولات آرایشی</b></h3>
+                            <p style="color: rgb(5, 4, 4);"> فروشگاه بیوتی مریماه با بروز ترین و با کیفیت ترین محصولات آرایشی و بهداشتی  در تلاش است شما را زیبا تر از آنچه که هستید نشان دهد.</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+

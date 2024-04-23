@@ -1,0 +1,35 @@
+﻿@model PagedList<Demo.Domain.Product>
+@{
+    ViewData["Title"] = "Search";
+}
+
+<partial name="_LoginPartial" />
+<hr />
+<div class="row">
+    @foreach (var item in Model.Data)
+    {
+        <div class="col-sm-6 col-lg-4 text-center item mb-4">
+            <a href="~/home/ShopSingle/@item.ProductID"> <img src="@item.Medias[0].Path" style="width:300px; height:300px;" alt="Image"></a>
+            <h3 class="text-black"><a href="~/home/ShopSingle/@item.ProductID">@item.Name</a></h3>
+            <p class="price">@item.Price  تومان</p>
+        </div>
+    }
+</div>
+<div class="row mt-5">
+    <div class="col-md-12 text-center">
+        <div class="site-block-27">
+            <ul>
+                <li><a href="#">&lt;</a></li>
+
+
+                @for (int i = 1; i <= Model.TotalPages; i++)
+                {
+                    <li class="active"><span>@i</span></li>
+                }
+                <li><a href="#">&gt;</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
